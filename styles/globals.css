@@ -1,3 +1,12 @@
+:root {
+  --PrimaryColor: #cc3333;
+  --SecondaryColor: #ff6666;
+  --TertiaryColor: #ffcccc;
+  --DarkGrey: #707070;
+  --LightGray: #cccccc;
+  --MarginBot: 15px;
+}
+
 html,
 body {
   padding: 0;
@@ -13,4 +22,17 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+/* Typography */
+
+p {
+  padding: 0;
+  margin: 0;
+  text-align: justify;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
