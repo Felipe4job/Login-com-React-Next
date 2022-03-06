@@ -33,20 +33,20 @@ Caso você tenha alguma sugestão de melhorias ou dicas comenta aí.
 
 # Configurações
 
-[Next](https://nextjs.org/docs/getting-started)
-[MUI](https://mui.com/pt/)
-[YUP](https://yarnpkg.com/package/yup)
+- [Next](https://nextjs.org/docs/getting-started)
+- [MUI](https://mui.com/pt/)
+- [YUP](https://yarnpkg.com/package/yup)
 
 ## Para formatação de código
 
 Utilizo o Prettier, ESLint e Simple React. Alguns links que podem ajudar nessa configuração:
 
-[Prettier](https://prettier.io/)
-[ESLint](https://eslint.org/)
-[Simple-React-Snippets](https://marketplace.visualstudio.com/items?itemName=burkeholland.simple-react-snippets)
+- [Prettier](https://prettier.io/)
+- [ESLint](https://eslint.org/)
+- [Simple-React-Snippets](https://marketplace.visualstudio.com/items?itemName=burkeholland.simple-react-snippets)
 
 Alguns artigos que ajudam nessa configuração:
 
-[ESLint+Prettier](https://medium.com/cwi-software/eslint-prettier-a-dupla-perfeita-para-produtividade-e-padroniza%C3%A7%C3%A3o-de-c%C3%B3digo-6a7730cfa358)
+- [ESLint+Prettier](https://medium.com/cwi-software/eslint-prettier-a-dupla-perfeita-para-produtividade-e-padroniza%C3%A7%C3%A3o-de-c%C3%B3digo-6a7730cfa358)
 
-[Prettier-config](https://www.digitalocean.com/community/tutorials/how-to-format-code-with-prettier-in-visual-studio-code-pt)
+- [Prettier-config](https://www.digitalocean.com/community/tutorials/how-to-format-code-with-prettier-in-visual-studio-code-pt)
