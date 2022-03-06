@@ -6,9 +6,9 @@ import Link from '@mui/material/Link';
 import * as yup from 'yup';
 import { FormHelperText } from '@mui/material';
 
-import chibas from '../../styles/Login.module.css';
-import brand from '../../public/Images/brand-full-300.png';
-import DnSubmit from '../tools/DnSubmit';
+import style from '../styles/Login.module.css';
+import brand from '../public/Images/logo_preto.png';
+import Submit from './Submit';
 
 export default function ForgotPass() {
   const [Fields, setFields] = useState({
@@ -46,13 +46,13 @@ export default function ForgotPass() {
 
   return (
     <>
-      <div className={chibas.BoxForgotPass}>
-        <div className={chibas.MarginFields}>
+      <div className={style.BoxForgotPass}>
+        <div className={style.MarginFields}>
           <Image src={brand} alt='Marca DN completa' layout='fixed' />
         </div>
         <div>
           <h1>Esqueceu a senha</h1>
-          <p className={chibas.MarginFields}>
+          <p className={style.MarginFields}>
             Preencha o campo abaixo e receba as instruções para resetar a senha
             em seu e-mail.
           </p>
@@ -87,12 +87,8 @@ export default function ForgotPass() {
             error
           >{`${Errors.email.erro}`}</FormHelperText>
           <Stack spacing={2} alignItems='flex-end' justifyContent='flex-end'>
-            <DnSubmit
-              data={Fields}
-              valid={Errors}
-              form={'forgotPass'}
-            ></DnSubmit>
-            <Link href='/login' underline='hover'>
+            <Submit data={Fields} valid={Errors} form={'forgotPass'}></Submit>
+            <Link href='/' underline='hover'>
               {'Voltar para login'}
             </Link>
           </Stack>

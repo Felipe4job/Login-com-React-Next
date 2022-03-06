@@ -1,34 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#Tela de login e esqueceu a senha utilizando React com Next
 
-## Getting Started
+Projeto utilizando o Next como um React Framework. Desenvolvido por um aprendiz de desenvolvimento.
+Na tentativa de criar uma tela de login para um projeto maior.
 
-First, run the development server:
+##Componentes
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Utilizando a técnica de criar componentes e montar as páginas renderizando-os. Assim temos um código bem componentizado facilitando assim a manutenção e refatoração do código.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+###Submit
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Criei um componente Submit que possui o botão de submit que deve ser carregado em todo o sistema. Trata-se de um sistema que tem muitos formulários e sunmits. Dessa forma vamos centralizar todas as ações de Submit do sistema em um único lugar. Para isso, passamos o tipo de formulário através de props e tratamos qual API vamos direcionar o formulário.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+###API
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Utilizando o sistema de rotas do Next montamos a URL com os valores dos inputs. Na API tratamos a URL e montamos um JSON com os dados enviados.
 
-## Learn More
+#Bibliotecas
 
-To learn more about Next.js, take a look at the following resources:
+##MUI
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Utilizamos o Material UI, MUI, para montar o layout. Aqui a autodefinição "MUI provides a robust, customizable, and accessible library of foundational and advanced components, enabling you to build your design system and develop React applications faster."
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+##YUP
 
-## Deploy on Vercel
+Aqui vamos de validação de campos. Validar Inputs é algo chato e trabalhoso. Utilizamos o YUP para criar as regras e retornar as mensagens de erros. Muita gente utiliza o YUP junto com o FORMIK, mas optei por não usá-lo e tentar aprender na marra.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#Observações
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Ainda falta fazer a validação do usuário de fato. Criptografar a senha. Ainda não sei como fazer isso e vou estudar possibilidades como o [Cognito] (https://aws.amazon.com/pt/cognito/) ou [Active-Directory] (https://docs.microsoft.com/pt-br/azure/active-directory/authentication/).
+
+Caso você tenha alguma sugestão de melhorias ou dicas comenta aí.
+
+#Configurações
+
+[Next] (https://nextjs.org/docs/getting-started)
+[MUI] (https://mui.com/pt/)
+[YUP] (https://yarnpkg.com/package/yup)
+
+##Para formatação de código
+
+Utilizo o Prettier, ESLint e Simple React. Alguns links que podem ajudar nessa configuração:
+
+[Prettier] (https://prettier.io/)
+[ESLint] (https://eslint.org/)
+[Simple-React-Snippets] (https://marketplace.visualstudio.com/items?itemName=burkeholland.simple-react-snippets)
+
+Alguns artigos que ajudam nessa configuração:
+
+[ESLint+Prettier] (https://medium.com/cwi-software/eslint-prettier-a-dupla-perfeita-para-produtividade-e-padroniza%C3%A7%C3%A3o-de-c%C3%B3digo-6a7730cfa358)
+
+[Prettier-config] (https://www.digitalocean.com/community/tutorials/how-to-format-code-with-prettier-in-visual-studio-code-pt)

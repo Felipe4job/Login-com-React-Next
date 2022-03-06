@@ -1,9 +1,9 @@
 import React from 'react';
 
-import style from '../../styles/Login.module.css';
+import style from '../styles/Login.module.css';
 
-import Login from '../../Components/Login';
-import Head from '../../Components/Head';
+import Login from '../Components/Login';
+import Head from '../Components/Head';
 
 export default function LoginArea() {
   return (

@@ -11,9 +11,9 @@ import { FormHelperText } from '@mui/material';
 import * as yup from 'yup';
 import { setLocale } from 'yup';
 
-import style from '../../styles/Login.module.css';
-import brand from '../../public/Images/brand-full-300.png';
-import DnSubmit from '../tools/DnSubmit';
+import style from '../styles/Login.module.css';
+import brand from '../public/Images/logo_preto.png';
+import DnSubmit from './Submit';
 
 export default function Login() {
   const [Fields, setFields] = useState({
@@ -193,7 +193,7 @@ export default function Login() {
             <DnSubmit data={Fields} valid={Errors} form={'login'}>
               Entrar
             </DnSubmit>
-            <Link href='/login/forgotpassword' underline='hover'>
+            <Link href='/forgotpassword' underline='hover'>
               {'Esqueceu a senha'}
             </Link>
           </Stack>

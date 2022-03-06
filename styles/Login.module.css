@@ -2,32 +2,19 @@
   border: 1px solid var(--LightGray);
   border-radius: 5px;
   padding: 30px;
-  margin-top: -30px;
 }
 
 .BoxForgotPass {
-  margin-top: -30px;
   width: 300px;
-}
-
-@media (max-width: 690px) {
-  .Box {
-    margin-top: auto;
-  }
 }
 
 .FormSignin {
   width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-
-.FixedBrand {
-  top: -15px !important;
-  left: -30px !important;
-  opacity: 50%;
 }
 
 .MarginFields {

@@ -11,8 +11,6 @@ export default function DnSubmit(props) {
   let brake = false;
   const router = useRouter();
 
-  console.log(data);
-
   for (let field in validate) {
     if (brake === true) {
       break;
