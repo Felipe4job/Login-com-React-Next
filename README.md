@@ -50,3 +50,15 @@ Alguns artigos que ajudam nessa configuração:
 - [ESLint+Prettier](https://medium.com/cwi-software/eslint-prettier-a-dupla-perfeita-para-produtividade-e-padroniza%C3%A7%C3%A3o-de-c%C3%B3digo-6a7730cfa358)
 
 - [Prettier-config](https://www.digitalocean.com/community/tutorials/how-to-format-code-with-prettier-in-visual-studio-code-pt)
+
+## Como ficam as telas
+
+![Login](./public/Images/login_ex.png)
+
+![Esqueceu-a-Senha](./public/Images/forgot_pass_ex.png)
+
+# Atualizações
+
+- Padronização dos nomes dados a constantes nos componentes para ficarem iguais as variáveis enviadas bia Props
+- ADD da imagem da tela no Readme
+- Refatoração do código para mostrar em vermelho quando o campo estiver com dados inválidos.

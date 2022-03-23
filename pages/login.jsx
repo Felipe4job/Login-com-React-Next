@@ -8,7 +8,7 @@ import Head from '../Components/Head';
 export default function LoginArea() {
   return (
     <>
-      <Head title='DN - Login' />
+      <Head title='Login' />
       <section className={style.FormSignin}>
         <Login />
       </section>

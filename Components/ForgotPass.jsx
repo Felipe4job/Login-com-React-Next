@@ -11,16 +11,16 @@ import brand from '../public/Images/logo_preto.png';
 import Submit from './Submit';
 
 export default function ForgotPass() {
-  const [Fields, setFields] = useState({
+  const [Data, setFields] = useState({
     email: '',
   });
 
   const [Errors, setErrors] = useState({
-    email: { erro: '', valid: false },
+    email: { error: '', valid: false },
   });
 
   const handleChange = (prop) => (event) => {
-    setFields({ ...Fields, [prop]: event.target.value });
+    setFields({ ...Data, [prop]: event.target.value });
     if (prop === 'email') {
       let schema = yup.object().shape({
         email: yup
@@ -33,12 +33,15 @@ export default function ForgotPass() {
         .validate({ email: event.target.value }, { abortEarly: false })
         .catch((err) => {
           const handleErrors = err.errors[0];
-          setErrors({ ...Errors, email: { erro: handleErrors, valid: false } });
+          setErrors({
+            ...Errors,
+            email: { error: handleErrors, valid: false },
+          });
         });
       schema.isValid({ email: event.target.value }).then((value) => {
         const handleValid = value;
         if (handleValid) {
-          setErrors({ ...Errors, email: { erro: '', valid: true } });
+          setErrors({ ...Errors, email: { error: '', valid: true } });
         }
       });
     }
@@ -59,35 +62,23 @@ export default function ForgotPass() {
         </div>
         <form>
           <div>
-            {Errors.email.valid ? (
-              <TextField
-                required
-                fullWidth
-                type='email'
-                id='e-mail'
-                label='Seu E-mail'
-                value={Fields.email}
-                onChange={handleChange('email')}
-              />
-            ) : (
-              <TextField
-                required
-                fullWidth
-                type='email'
-                id='e-mail'
-                label='Seu E-mail'
-                value={Fields.email}
-                onChange={handleChange('email')}
-                error
-              />
-            )}
+            <TextField
+              required
+              fullWidth
+              type='email'
+              id='e-mail'
+              label='Seu E-mail'
+              value={Data.email}
+              onChange={handleChange('email')}
+              error={Errors.email.error !== '' ? true : false}
+            />
           </div>
           <FormHelperText
             sx={{ paddingBottom: 2 }}
             error
-          >{`${Errors.email.erro}`}</FormHelperText>
+          >{`${Errors.email.error}`}</FormHelperText>
           <Stack spacing={2} alignItems='flex-end' justifyContent='flex-end'>
-            <Submit data={Fields} valid={Errors} form={'forgotPass'}></Submit>
+            <Submit data={Data} valid={Errors} form={'forgotPass'}></Submit>
             <Link href='/' underline='hover'>
               {'Voltar para login'}
             </Link>

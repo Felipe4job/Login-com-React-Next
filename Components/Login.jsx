@@ -16,7 +16,7 @@ import brand from '../public/Images/logo_preto.png';
 import DnSubmit from './Submit';
 
 export default function Login() {
-  const [Fields, setFields] = useState({
+  const [Data, setData] = useState({
     email: '',
     password: '',
   });
@@ -24,12 +24,12 @@ export default function Login() {
   const [ShowPassword, setShowPassword] = useState({ show: false });
 
   const [Errors, setErrors] = useState({
-    email: { erro: '', valid: false },
-    pass: { erro: '', valid: false },
+    email: { error: '', valid: false },
+    pass: { error: '', valid: false },
   });
 
   const handleChange = (prop) => (event) => {
-    setFields({ ...Fields, [prop]: event.target.value });
+    setData({ ...Data, [prop]: event.target.value });
     if (prop === 'email') {
       let schema = yup.object().shape({
         email: yup
@@ -42,12 +42,15 @@ export default function Login() {
         .validate({ email: event.target.value }, { abortEarly: false })
         .catch((err) => {
           const handleErrors = err.errors[0];
-          setErrors({ ...Errors, email: { erro: handleErrors, valid: false } });
+          setErrors({
+            ...Errors,
+            email: { error: handleErrors, valid: false },
+          });
         });
       schema.isValid({ email: event.target.value }).then((value) => {
         const handleValid = value;
         if (handleValid) {
-          setErrors({ ...Errors, email: { erro: '', valid: true } });
+          setErrors({ ...Errors, email: { error: '', valid: true } });
         }
       });
     }
@@ -70,12 +73,12 @@ export default function Login() {
         .validate({ password: event.target.value }, { abortEarly: false })
         .catch((err) => {
           const handleErrors = err.errors[0];
-          setErrors({ ...Errors, pass: { erro: handleErrors, valid: false } });
+          setErrors({ ...Errors, pass: { error: handleErrors, valid: false } });
         });
       schemaPassword.isValid({ password: event.target.value }).then((value) => {
         const handleValid = value;
         if (handleValid) {
-          setErrors({ ...Errors, pass: { erro: '', valid: true } });
+          setErrors({ ...Errors, pass: { error: '', valid: true } });
         }
       });
     }
@@ -99,98 +102,56 @@ export default function Login() {
         </div>
         <form>
           <div>
-            {Errors.email.valid ? (
-              <TextField
-                required
-                fullWidth
-                type='email'
-                id='e-mail'
-                label='Seu E-mail'
-                value={Fields.email}
-                onChange={handleChange('email')}
-              />
-            ) : (
-              <TextField
-                required
-                fullWidth
-                type='email'
-                id='e-mail'
-                label='Seu E-mail'
-                value={Fields.email}
-                onChange={handleChange('email')}
-                error
-              />
-            )}
+            <TextField
+              required
+              fullWidth
+              type='email'
+              id='e-mail'
+              label='Seu E-mail'
+              value={Data.email}
+              onChange={handleChange('email')}
+              error={Errors.email.error !== '' ? true : false}
+            />
           </div>
           <FormHelperText
             sx={{ paddingBottom: 2 }}
             error
-          >{`${Errors.email.erro}`}</FormHelperText>
+          >{`${Errors.email.error}`}</FormHelperText>
 
           <div>
-            {Errors.pass.valid ? (
-              <TextField
-                label='Sua Senha'
-                id='Password'
-                fullWidth
-                required
-                type={ShowPassword.show ? 'text' : 'password'}
-                value={Fields.password}
-                onChange={handleChange('password')}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position='end'>
-                      <IconButton
-                        aria-label='toggle password visibility'
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        edge='end'
-                      >
-                        {ShowPassword.show ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            ) : (
-              <TextField
-                label='Sua Senha'
-                id='Password'
-                fullWidth
-                required
-                error
-                type={Fields.showPassword ? 'text' : 'password'}
-                value={Fields.password}
-                onChange={handleChange('password')}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position='end'>
-                      <IconButton
-                        aria-label='toggle password visibility'
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        edge='end'
-                      >
-                        {Fields.showPassword ? (
-                          <VisibilityOff />
-                        ) : (
-                          <Visibility />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            )}
+            <TextField
+              label='Sua Senha'
+              id='Password'
+              fullWidth
+              required
+              type={ShowPassword.show ? 'text' : 'password'}
+              value={Data.password}
+              onChange={handleChange('password')}
+              error={Errors.pass.error !== '' ? true : false}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position='end'>
+                    <IconButton
+                      aria-label='toggle password visibility'
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge='end'
+                    >
+                      {ShowPassword.show ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
           </div>
 
           <FormHelperText
             sx={{ paddingBottom: 2 }}
             error
-          >{`${Errors.pass.erro}`}</FormHelperText>
+          >{`${Errors.pass.error}`}</FormHelperText>
 
           <Stack spacing={2} alignItems='flex-end' justifyContent='flex-end'>
-            <DnSubmit data={Fields} valid={Errors} form={'login'}>
+            <DnSubmit data={Data} valid={Errors} form={'login'}>
               Entrar
             </DnSubmit>
             <Link href='/forgotpassword' underline='hover'>
